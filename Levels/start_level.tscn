@@ -1,8 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://bfty4nji48vmr"]
+[gd_scene load_steps=7 format=3 uid="uid://bfty4nji48vmr"]
 
 [ext_resource type="PackedScene" uid="uid://dhmmgwlcnp4xu" path="res://Characters/player_bert.tscn" id="1_t7oqv"]
 [ext_resource type="Texture2D" uid="uid://b4tqu03oq83iy" path="res://art/Background purple.png" id="2_hvkuq"]
 [ext_resource type="Script" path="res://Buttons/LabyrinthButton.gd" id="3_cbo6l"]
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_n61uf"]
+b = Vector2(0, 520)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_ut0t4"]
+a = Vector2(845, 0)
+b = Vector2(845, 518)
+
+[sub_resource type="SegmentShape2D" id="SegmentShape2D_dv8o2"]
+a = Vector2(-240, -255)
+b = Vector2(605, -255)
 
 [node name="StartLevel" type="Node2D"]
 
@@ -23,5 +34,23 @@ offset_bottom = 72.0
 mouse_default_cursor_shape = 2
 button_mask = 0
 script = ExtResource("3_cbo6l")
+
+[node name="collisionfolder" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collisionfolder"]
+shape = SubResource("SegmentShape2D_n61uf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="collisionfolder"]
+shape = SubResource("SegmentShape2D_ut0t4")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="collisionfolder"]
+position = Vector2(241, 254)
+shape = SubResource("SegmentShape2D_dv8o2")
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="collisionfolder"]
+position = Vector2(241, 254)
+shape = SubResource("SegmentShape2D_dv8o2")
+one_way_collision_margin = 0.0
 
 [connection signal="button_down" from="TextureButton (labyrinth)" to="PlayerBert" method="_on_texture_button_labyrinth_button_down"]
