@@ -18,13 +18,15 @@ b = Vector2(605, -255)
 [node name="StartLevel" type="Node2D"]
 
 [node name="Background (TextureRect)" type="TextureRect" parent="."]
+offset_left = 5.0
 offset_top = 2.0
-offset_right = 846.0
+offset_right = 851.0
 offset_bottom = 519.0
 texture = ExtResource("2_hvkuq")
 
 [node name="PlayerBert" parent="." instance=ExtResource("1_t7oqv")]
 position = Vector2(325, 253)
+move_speed = 150.0
 
 [node name="TextureButton (labyrinth)" type="TextureButton" parent="."]
 offset_left = 15.0
@@ -39,17 +41,19 @@ script = ExtResource("3_cbo6l")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="collisionfolder"]
 shape = SubResource("SegmentShape2D_n61uf")
+one_way_collision_margin = 0.0
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="collisionfolder"]
 shape = SubResource("SegmentShape2D_ut0t4")
+one_way_collision_margin = 0.0
 
 [node name="CollisionShape2D3" type="CollisionShape2D" parent="collisionfolder"]
-position = Vector2(241, 254)
+position = Vector2(241, 256)
 shape = SubResource("SegmentShape2D_dv8o2")
 one_way_collision_margin = 0.0
 
 [node name="CollisionShape2D4" type="CollisionShape2D" parent="collisionfolder"]
-position = Vector2(241, 254)
+position = Vector2(241, 772)
 shape = SubResource("SegmentShape2D_dv8o2")
 one_way_collision_margin = 0.0
 
