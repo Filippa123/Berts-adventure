@@ -1,16 +1,29 @@
-[gd_scene load_steps=6 format=3 uid="uid://brscgdyxpjmyv"]
+[gd_scene load_steps=7 format=3 uid="uid://brscgdyxpjmyv"]
 
 [ext_resource type="Texture2D" uid="uid://hqwvshwycg8f" path="res://art/Yoshi cute.jpg" id="1_lmdxv"]
 [ext_resource type="PackedScene" uid="uid://b18u0hk5qiyli" path="res://Constructs/wall.tscn" id="2_i7v34"]
 [ext_resource type="PackedScene" uid="uid://dhmmgwlcnp4xu" path="res://Characters/player_bert.tscn" id="2_ra7ay"]
+[ext_resource type="Texture2D" uid="uid://e48uj4ybaou6" path="res://art/Walls.png" id="4_6nrlr"]
 
-[sub_resource type="TileSetScenesCollectionSource" id="TileSetScenesCollectionSource_3cohh"]
-scenes/1/scene = ExtResource("2_i7v34")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uqbs4"]
+texture = ExtResource("4_6nrlr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
 
-[sub_resource type="TileSet" id="TileSet_otdyq"]
-tile_size = Vector2i(25, 25)
+[sub_resource type="TileSet" id="TileSet_lcb4b"]
 physics_layer_0/collision_layer = 1
-sources/0 = SubResource("TileSetScenesCollectionSource_3cohh")
+sources/0 = SubResource("TileSetAtlasSource_uqbs4")
 
 [node name="labyrinth_level" type="Node2D"]
 
@@ -26,8 +39,8 @@ texture = ExtResource("1_lmdxv")
 [node name="PlayerBert" parent="." instance=ExtResource("2_ra7ay")]
 position = Vector2(71, 125)
 
-[node name="TileMap" type="TileMap" parent="."]
-scale = Vector2(620242, 7.01062e+15)
-tile_set = SubResource("TileSet_otdyq")
-rendering_quadrant_size = 25
+[node name="TileMap_Walls" type="TileMap" parent="."]
+scale = Vector2(0.93427, 4172.54)
+tile_set = SubResource("TileSet_lcb4b")
 format = 2
+layer_0/tile_data = PackedInt32Array(56, 65536, 0, 32, 65536, 0, 0, 65536, 0, 18, 65536, 0, 44, 65536, 0)
