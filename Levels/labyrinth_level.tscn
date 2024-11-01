@@ -22,6 +22,7 @@ texture_region_size = Vector2i(32, 32)
 0:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_lcb4b"]
+tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_uqbs4")
 
@@ -40,7 +41,10 @@ texture = ExtResource("1_lmdxv")
 position = Vector2(71, 125)
 
 [node name="TileMap_Walls" type="TileMap" parent="."]
+position = Vector2(-8, 0)
 scale = Vector2(0.93427, 4172.54)
 tile_set = SubResource("TileSet_lcb4b")
 format = 2
-layer_0/tile_data = PackedInt32Array(56, 65536, 0, 32, 65536, 0, 0, 65536, 0, 18, 65536, 0, 44, 65536, 0)
+layer_0/name = "Ground"
+layer_1/name = "above groung"
+layer_1/tile_data = PackedInt32Array()
