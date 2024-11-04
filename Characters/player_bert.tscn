@@ -4,16 +4,18 @@
 [ext_resource type="Script" path="res://Characters/player_bert.gd" id="1_eqa5k"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7u8t6"]
-radius = 19.022
-height = 50.0382
+radius = 8.99556
+height = 25.9872
 
 [node name="PlayerBert" type="CharacterBody2D"]
 script = ExtResource("1_eqa5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-0.5, -4.25)
+scale = Vector2(0.540984, 0.532787)
 texture = ExtResource("1_6vufo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 1)
+position = Vector2(-1, -4)
 rotation = 1.53938
 shape = SubResource("CapsuleShape2D_7u8t6")
