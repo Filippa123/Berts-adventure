@@ -1,9 +1,11 @@
-[gd_scene load_steps=8 format=3 uid="uid://brscgdyxpjmyv"]
+[gd_scene load_steps=11 format=3 uid="uid://brscgdyxpjmyv"]
 
 [ext_resource type="Texture2D" uid="uid://hqwvshwycg8f" path="res://art/Yoshi cute.jpg" id="1_lmdxv"]
 [ext_resource type="PackedScene" uid="uid://b18u0hk5qiyli" path="res://Constructs/wall.tscn" id="2_i7v34"]
 [ext_resource type="PackedScene" uid="uid://dhmmgwlcnp4xu" path="res://Characters/player_bert.tscn" id="2_ra7ay"]
 [ext_resource type="Texture2D" uid="uid://e48uj4ybaou6" path="res://art/Walls.png" id="4_6nrlr"]
+[ext_resource type="Script" path="res://Levels/Area2D.gd" id="5_k13ga"]
+[ext_resource type="Texture2D" uid="uid://cl7bfg5elg57h" path="res://art/Children sprite.png" id="6_eltiy"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h8ruv"]
 
@@ -67,6 +69,9 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_h8ruv")
 sources/0 = SubResource("TileSetAtlasSource_kanba")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo16v"]
+size = Vector2(56, 48)
+
 [node name="labyrinth_level" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
@@ -93,8 +98,21 @@ layer_0/tile_data = PackedInt32Array(1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(48, 48)
-scale = Vector2(1, 0.99804)
 limit_left = 0
 limit_top = 0
 limit_right = 832
 limit_bottom = 768
+
+[node name="WinDetected" type="Area2D" parent="."]
+script = ExtResource("5_k13ga")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinDetected"]
+position = Vector2(772, 704)
+shape = SubResource("RectangleShape2D_lo16v")
+
+[node name="Sprite2D" type="Sprite2D" parent="WinDetected"]
+position = Vector2(768, 696)
+scale = Vector2(1.02459, 1.02459)
+texture = ExtResource("6_eltiy")
+
+[connection signal="body_entered" from="WinDetected" to="WinDetected" method="_on_body_entered"]

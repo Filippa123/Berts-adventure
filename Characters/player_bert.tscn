@@ -7,7 +7,7 @@
 radius = 8.99556
 height = 25.9872
 
-[node name="PlayerBert" type="CharacterBody2D"]
+[node name="PlayerBert" type="CharacterBody2D" groups=["Player"]]
 script = ExtResource("1_eqa5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
