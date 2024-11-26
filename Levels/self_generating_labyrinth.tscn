@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6vhfn7k1onl8"]
+
+[ext_resource type="Script" path="res://Self Generating labyrinth.gd" id="1_fqvpf"]
+[ext_resource type="Script" path="res://LabyrinthGen.gd" id="2_e8xxi"]
+
+[node name="Self Generating labyrinth" type="Node2D"]
+script = ExtResource("1_fqvpf")
+
+[node name="Labyrinth_self_Gen_TileMap" type="TileMap" parent="."]
+format = 2
+script = ExtResource("2_e8xxi")

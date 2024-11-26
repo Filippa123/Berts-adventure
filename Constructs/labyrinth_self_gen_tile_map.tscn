@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce32di5p54joc"]
+
+[ext_resource type="Script" path="res://LabyrinthGen.gd" id="1_qeys0"]
+
+[node name="Labyrinth_self_Gen_TileMap" type="TileMap"]
+format = 2
+script = ExtResource("1_qeys0")
