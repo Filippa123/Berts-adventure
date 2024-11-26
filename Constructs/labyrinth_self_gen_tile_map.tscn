@@ -1,7 +1,21 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce32di5p54joc"]
+[gd_scene load_steps=5 format=3 uid="uid://ce32di5p54joc"]
 
+[ext_resource type="Texture2D" uid="uid://e48uj4ybaou6" path="res://art/Walls.png" id="1_obsbe"]
 [ext_resource type="Script" path="res://LabyrinthGen.gd" id="1_qeys0"]
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4ma8p"]
+texture = ExtResource("1_obsbe")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_5m65f"]
+sources/0 = SubResource("TileSetAtlasSource_4ma8p")
+
 [node name="Labyrinth_self_Gen_TileMap" type="TileMap"]
+tile_set = SubResource("TileSet_5m65f")
+rendering_quadrant_size = 32
 format = 2
 script = ExtResource("1_qeys0")

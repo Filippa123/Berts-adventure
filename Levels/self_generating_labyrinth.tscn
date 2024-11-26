@@ -1,11 +1,42 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6vhfn7k1onl8"]
+[gd_scene load_steps=7 format=3 uid="uid://b6vhfn7k1onl8"]
 
 [ext_resource type="Script" path="res://Self Generating labyrinth.gd" id="1_fqvpf"]
-[ext_resource type="Script" path="res://LabyrinthGen.gd" id="2_e8xxi"]
+[ext_resource type="PackedScene" uid="uid://dhmmgwlcnp4xu" path="res://Characters/player_bert.tscn" id="2_5d3ta"]
+[ext_resource type="PackedScene" uid="uid://ce32di5p54joc" path="res://Constructs/labyrinth_self_gen_tile_map.tscn" id="3_kgrc6"]
+[ext_resource type="Texture2D" uid="uid://e48uj4ybaou6" path="res://art/Walls.png" id="4_prp43"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_4asaq"]
+texture = ExtResource("4_prp43")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_dg01f"]
+physics_layer_0/collision_layer = 1
+sources/1 = SubResource("TileSetAtlasSource_4asaq")
 
 [node name="Self Generating labyrinth" type="Node2D"]
 script = ExtResource("1_fqvpf")
 
-[node name="Labyrinth_self_Gen_TileMap" type="TileMap" parent="."]
-format = 2
-script = ExtResource("2_e8xxi")
+[node name="PlayerBert" parent="." instance=ExtResource("2_5d3ta")]
+position = Vector2(-24, -23)
+
+[node name="Labyrinth_self_Gen_TileMap" parent="." instance=ExtResource("3_kgrc6")]
+tile_set = SubResource("TileSet_dg01f")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="CanvasLayer"]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="CanvasLayer/ParallaxBackground"]
