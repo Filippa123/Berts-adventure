@@ -5,7 +5,7 @@ class_name MazeGen
 #maze_gen.gd
 
 #Global variabels (från Globals.gd)
-@export var grid_size = 15
+@export var grid_size = 5
 @export var step_delay = 0.1
 @export var allow_loops = false
 @export var letters_to_show = []
@@ -54,6 +54,7 @@ func delete_cell_at(pos: Vector2):
 	set_cell(main_layer, pos)
 	
 func place_wall(pos: Vector2):
+	print("placed wall at" + str(pos))
 	set_cell(main_layer, pos, SOURCE_ID, normal_wall_atlas_coords)
 	
 func will_be_converted_to_wall(spot: Vector2i):
