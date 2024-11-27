@@ -11,6 +11,8 @@ class_name MazeGen
 @export var letters_to_show = []
 @export var show_labels = false #bokstäver när den genererar, har int med det koden finns i MazeGen projectet i dfs
 
+signal fringe_changed
+
 #signal fringe_changed # vet int va den här är får vara i comment än så länge iaf (end Globals.gd)
 
 var starting_pos = Vector2i()
@@ -76,6 +78,7 @@ func dfs(start: Vector2i):
 	var fringe: Array[Vector2i] = [start]
 	var seen = {}
 	while fringe.size() > 0:
+		print("fringe is" + str(fringe))
 		var current: Vector2i 
 		current = fringe.pop_back() as Vector2
 		if current in seen or not can_move_to(current):

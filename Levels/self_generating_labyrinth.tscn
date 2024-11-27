@@ -30,7 +30,7 @@ sources/1 = SubResource("TileSetAtlasSource_4asaq")
 script = ExtResource("1_fqvpf")
 
 [node name="PlayerBert" parent="." instance=ExtResource("2_5d3ta")]
-position = Vector2(-24, -23)
+position = Vector2(59, 71)
 
 [node name="Labyrinth_self_Gen_TileMap" parent="." instance=ExtResource("3_kgrc6")]
 tile_set = SubResource("TileSet_dg01f")
