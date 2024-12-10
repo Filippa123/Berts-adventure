@@ -15,6 +15,12 @@ signal fringe_changed
 
 #signal fringe_changed # vet int va den här är får vara i comment än så länge iaf (end Globals.gd)
 
+##################################################################################################################################################################
+#egna variabler test
+
+
+##################################################################################################################################################################
+
 var starting_pos = Vector2i()
 const main_layer = 0
 const normal_wall_atlas_coords = Vector2i(0, 0)

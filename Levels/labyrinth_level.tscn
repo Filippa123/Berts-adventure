@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dhmmgwlcnp4xu" path="res://Characters/player_bert.tscn" id="2_ra7ay"]
 [ext_resource type="Texture2D" uid="uid://e48uj4ybaou6" path="res://art/Walls.png" id="4_6nrlr"]
 [ext_resource type="Script" path="res://Levels/Area2D.gd" id="5_k13ga"]
-[ext_resource type="Texture2D" uid="uid://cl7bfg5elg57h" path="res://art/Children sprite.png" id="6_eltiy"]
+[ext_resource type="Texture2D" uid="uid://dgmn45v6v72vh" path="res://art/Berts children labyrinth goal.png" id="6_bdqpi"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h8ruv"]
 
@@ -107,12 +107,12 @@ limit_bottom = 768
 script = ExtResource("5_k13ga")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WinDetected"]
-position = Vector2(772, 704)
+position = Vector2(768, 704)
 shape = SubResource("RectangleShape2D_lo16v")
 
 [node name="Sprite2D" type="Sprite2D" parent="WinDetected"]
-position = Vector2(768, 696)
+position = Vector2(768, 704)
 scale = Vector2(1.02459, 1.02459)
-texture = ExtResource("6_eltiy")
+texture = ExtResource("6_bdqpi")
 
 [connection signal="body_entered" from="WinDetected" to="WinDetected" method="_on_body_entered"]

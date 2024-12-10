@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://dut5chr06y7if" path="res://art/Bert animation.png" id="2_24aso"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_7u8t6"]
-radius = 4.99753
-height = 22.0
+radius = 7.0
+height = 28.0
 
 [sub_resource type="Animation" id="Animation_ust8c"]
 length = 0.001
@@ -235,14 +235,14 @@ transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition
 script = ExtResource("1_eqa5k")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(-2, -9)
-scale = Vector2(0.753996, 0.742572)
+position = Vector2(15.5, 15.5)
+scale = Vector2(0.96875, 0.96875)
 texture = ExtResource("2_24aso")
 hframes = 4
 vframes = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2, -3)
+position = Vector2(15, 23)
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_7u8t6")
 
