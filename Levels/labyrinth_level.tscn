@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://brscgdyxpjmyv"]
+[gd_scene load_steps=12 format=3 uid="uid://brscgdyxpjmyv"]
 
 [ext_resource type="Texture2D" uid="uid://hqwvshwycg8f" path="res://art/Yoshi cute.jpg" id="1_lmdxv"]
 [ext_resource type="PackedScene" uid="uid://b18u0hk5qiyli" path="res://Constructs/wall.tscn" id="2_i7v34"]
 [ext_resource type="PackedScene" uid="uid://dhmmgwlcnp4xu" path="res://Characters/player_bert.tscn" id="2_ra7ay"]
+[ext_resource type="Texture2D" uid="uid://dif8xmmscouix" path="res://art/Background krita.png" id="2_vnamq"]
 [ext_resource type="Texture2D" uid="uid://e48uj4ybaou6" path="res://art/Walls.png" id="4_6nrlr"]
 [ext_resource type="Script" path="res://Levels/Area2D.gd" id="5_k13ga"]
 [ext_resource type="Texture2D" uid="uid://dgmn45v6v72vh" path="res://art/Berts children labyrinth goal.png" id="6_bdqpi"]
@@ -79,6 +80,11 @@ offset_top = -416.0
 offset_right = 832.0
 offset_bottom = 1280.0
 texture = ExtResource("1_lmdxv")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_vnamq")
 
 [node name="wall" parent="." instance=ExtResource("2_i7v34")]
 position = Vector2(720, 808)
