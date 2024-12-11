@@ -1,0 +1,117 @@
+[gd_scene load_steps=11 format=3 uid="uid://b51sqpws7s0g4"]
+
+[ext_resource type="Texture2D" uid="uid://dif8xmmscouix" path="res://art/Background krita.png" id="1_gsosu"]
+[ext_resource type="PackedScene" uid="uid://b18u0hk5qiyli" path="res://Constructs/wall.tscn" id="2_bj1ey"]
+[ext_resource type="PackedScene" uid="uid://dhmmgwlcnp4xu" path="res://Characters/player_bert.tscn" id="3_bfvk1"]
+[ext_resource type="Texture2D" uid="uid://e48uj4ybaou6" path="res://art/Walls.png" id="4_7qul8"]
+[ext_resource type="Script" path="res://Levels/Area2D.gd" id="5_a7fi1"]
+[ext_resource type="Texture2D" uid="uid://dgmn45v6v72vh" path="res://art/Berts children labyrinth goal.png" id="6_aaufk"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h8ruv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kanba"]
+texture = ExtResource("4_7qul8")
+texture_region_size = Vector2i(32, 32)
+0:0/next_alternative_id = 4
+0:0/0 = 0
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+1:0/0 = 0
+1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:0/0/physics_layer_0/angular_velocity = 0.0
+2:0/0 = 0
+2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:0/0/physics_layer_0/angular_velocity = 0.0
+3:0/0 = 0
+3:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:0/0/physics_layer_0/angular_velocity = 0.0
+0:1/0 = 0
+0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:1/0/physics_layer_0/angular_velocity = 0.0
+1:1/0 = 0
+1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:1/0/physics_layer_0/angular_velocity = 0.0
+2:1/0 = 0
+2:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:1/0/physics_layer_0/angular_velocity = 0.0
+3:1/0 = 0
+3:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:1/0/physics_layer_0/angular_velocity = 0.0
+0:2/0 = 0
+0:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:2/0/physics_layer_0/angular_velocity = 0.0
+1:2/0 = 0
+1:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:2/0/physics_layer_0/angular_velocity = 0.0
+2:2/0 = 0
+2:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:2/0/physics_layer_0/angular_velocity = 0.0
+3:2/0 = 0
+3:2/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:2/0/physics_layer_0/angular_velocity = 0.0
+0:3/0 = 0
+0:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:3/0/physics_layer_0/angular_velocity = 0.0
+1:3/0 = 0
+1:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+1:3/0/physics_layer_0/angular_velocity = 0.0
+2:3/0 = 0
+2:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+2:3/0/physics_layer_0/angular_velocity = 0.0
+3:3/0 = 0
+3:3/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+3:3/0/physics_layer_0/angular_velocity = 0.0
+
+[sub_resource type="TileSet" id="TileSet_wfp11"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_h8ruv")
+sources/0 = SubResource("TileSetAtlasSource_kanba")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo16v"]
+size = Vector2(56, 48)
+
+[node name="labyrinth_level" type="Node2D"]
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_gsosu")
+
+[node name="wall" parent="." instance=ExtResource("2_bj1ey")]
+position = Vector2(720, 808)
+
+[node name="PlayerBert" parent="." instance=ExtResource("3_bfvk1")]
+position = Vector2(32, 32)
+
+[node name="RemoteTransform2D" type="RemoteTransform2D" parent="PlayerBert"]
+remote_path = NodePath("../../Camera2D")
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_wfp11")
+rendering_quadrant_size = 32
+format = 2
+layer_0/name = "wall"
+layer_0/tile_data = PackedInt32Array(1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 21, 0, 0, 22, 0, 0, 23, 0, 0, 24, 0, 0, 25, 0, 0, 65536, 0, 0, 131072, 0, 0, 196608, 0, 0, 262144, 0, 0, 327680, 0, 0, 393216, 0, 0, 458752, 0, 0, 524288, 0, 0, 589824, 0, 0, 655360, 0, 0, 720896, 0, 0, 786432, 0, 0, 851968, 0, 0, 917504, 0, 0, 983040, 0, 0, 983065, 0, 0, 917529, 0, 0, 851993, 0, 0, 786457, 0, 0, 720921, 0, 0, 655385, 0, 0, 589849, 0, 0, 524313, 0, 0, 458777, 0, 0, 393241, 0, 0, 327705, 0, 0, 262169, 0, 0, 196633, 0, 0, 131097, 0, 0, 65561, 0, 0, 0, 0, 0, 1507330, 0, 0, 1048576, 0, 0, 1114112, 0, 0, 1179648, 0, 0, 1245184, 0, 0, 1310720, 0, 0, 1376256, 0, 0, 1507329, 0, 0, 1507328, 0, 0, 1441792, 0, 0, 1507331, 0, 0, 1507332, 0, 0, 1507333, 0, 0, 1507334, 0, 0, 1507335, 0, 0, 1507336, 0, 0, 1507337, 0, 0, 1507338, 0, 0, 1507339, 0, 0, 1507340, 0, 0, 1507341, 0, 0, 1507342, 0, 0, 1507343, 0, 0, 1507344, 0, 0, 1507345, 0, 0, 1507346, 0, 0, 1507347, 0, 0, 1507348, 0, 0, 1507349, 0, 0, 1507350, 0, 0, 1507351, 0, 0, 1507352, 0, 0, 1507353, 0, 0, 1441817, 0, 0, 1376281, 0, 0, 1310745, 0, 0, 1114137, 0, 0, 1048601, 0, 0, 1179673, 0, 0, 1245209, 0, 0, 131074, 0, 0, 131075, 0, 0, 131076, 0, 0, 131077, 0, 0, 131078, 0, 0, 131079, 0, 0, 131080, 0, 0, 131081, 0, 0, 131082, 0, 0, 131083, 0, 0, 262146, 0, 0, 327682, 0, 0, 393218, 0, 0, 458754, 0, 0, 262147, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 1376258, 0, 0, 131095, 0, 0, 1245186, 0, 0, 1114114, 0, 0, 983042, 0, 0, 851970, 0, 0, 720898, 0, 0, 589826, 0, 0, 1376260, 0, 0, 1376262, 0, 0, 1376264, 0, 0, 1376266, 0, 0, 1376268, 0, 0, 1376270, 0, 0, 1376272, 0, 0, 1376274, 0, 0, 1376276, 0, 0, 262167, 0, 0, 393239, 0, 0, 524311, 0, 0, 655383, 0, 0, 851991, 0, 0, 983063, 0, 0, 1114135, 0, 0, 1245207, 0, 0, 131093, 0, 0, 131091, 0, 0, 131089, 0, 0, 131087, 0, 0, 131085, 0, 0, 196619, 0, 0, 196621, 0, 0, 262157, 0, 0, 327693, 0, 0, 327692, 0, 0, 327691, 0, 0, 327690, 0, 0, 327689, 0, 0, 262153, 0, 0, 262151, 0, 0, 196615, 0, 0, 589827, 0, 0, 589828, 0, 0, 524292, 0, 0, 458756, 0, 0, 393220, 0, 0, 327684, 0, 0, 393225, 0, 0, 393224, 0, 0, 393223, 0, 0, 393222, 0, 0, 65551, 0, 0, 262158, 0, 0, 262159, 0, 0, 262160, 0, 0, 262161, 0, 0, 196625, 0, 0, 131090, 0, 0, 196629, 0, 0, 262165, 0, 0, 262166, 0, 0, 65559, 0, 0, 262163, 0, 0, 327699, 0, 0, 393235, 0, 0, 393236, 0, 0, 393237, 0, 0, 393238, 0, 0, 393234, 0, 0, 393233, 0, 0, 393232, 0, 0, 393231, 0, 0, 524293, 0, 0, 524294, 0, 0, 524295, 0, 0, 524296, 0, 0, 524297, 0, 0, 524298, 0, 0, 524299, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 720899, 0, 0, 720900, 0, 0, 720901, 0, 0, 720902, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 589837, 0, 0, 524310, 0, 0, 524309, 0, 0, 524308, 0, 0, 524307, 0, 0, 524306, 0, 0, 524305, 0, 0, 589841, 0, 0, 655377, 0, 0, 720913, 0, 0, 786449, 0, 0, 851985, 0, 0, 458767, 0, 0, 524303, 0, 0, 589839, 0, 0, 655375, 0, 0, 720911, 0, 0, 786447, 0, 0, 851983, 0, 0, 917519, 0, 0, 983055, 0, 0, 1048591, 0, 0, 1048592, 0, 0, 1048593, 0, 0, 983057, 0, 0, 917521, 0, 0, 655382, 0, 0, 655381, 0, 0, 655380, 0, 0, 655379, 0, 0, 720915, 0, 0, 786451, 0, 0, 786452, 0, 0, 786453, 0, 0, 786454, 0, 0, 786455, 0, 0, 917522, 0, 0, 917523, 0, 0, 917524, 0, 0, 917525, 0, 0, 1048599, 0, 0, 1048598, 0, 0, 1048597, 0, 0, 1048596, 0, 0, 1048595, 0, 0, 851971, 0, 0, 851972, 0, 0, 851973, 0, 0, 851974, 0, 0, 851975, 0, 0, 851976, 0, 0, 786440, 0, 0, 786441, 0, 0, 786442, 0, 0, 786443, 0, 0, 786444, 0, 0, 786445, 0, 0, 851981, 0, 0, 917517, 0, 0, 983053, 0, 0, 1048589, 0, 0, 1048590, 0, 0, 1310724, 0, 0, 1245188, 0, 0, 1179652, 0, 0, 1114116, 0, 0, 1114115, 0, 0, 1245185, 0, 0, 1310722, 0, 0, 1441796, 0, 0, 917516, 0, 0, 917515, 0, 0, 917514, 0, 0, 1048588, 0, 0, 1048587, 0, 0, 1048586, 0, 0, 1048585, 0, 0, 1048584, 0, 0, 983048, 0, 0, 983047, 0, 0, 983046, 0, 0, 983045, 0, 0, 983044, 0, 0, 983043, 0, 0, 1310726, 0, 0, 1245190, 0, 0, 1179654, 0, 0, 1114118, 0, 0, 1114120, 0, 0, 1179656, 0, 0, 1245192, 0, 0, 1310728, 0, 0, 1179657, 0, 0, 1179658, 0, 0, 1179659, 0, 0, 1179660, 0, 0, 1179661, 0, 0, 1179662, 0, 0, 1179663, 0, 0, 1179664, 0, 0, 1179665, 0, 0, 1179666, 0, 0, 1179667, 0, 0, 1179668, 0, 0, 1179669, 0, 0, 1179670, 0, 0, 1179671, 0, 0, 1310730, 0, 0, 1310732, 0, 0, 1310734, 0, 0, 1310736, 0, 0, 1310738, 0, 0, 1310740, 0, 0, 1310743, 0, 0, 1310742, 0, 0, 1441802, 0, 0, 1245198, 0, 0, 1441810, 0, 0, 1310737, 0, 0, 1245204, 0, 0, 1376278, 0, 0, 1114117, 0, 0, 1441804, 0, 0, 1376271, 0, 0, 720906, 0, 0, 262164, 0, 0, 655384, 0, 0, 131073, 0, 0, 65538, 0, 0)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(32, 32)
+limit_left = 0
+limit_top = 0
+limit_right = 832
+limit_bottom = 768
+
+[node name="WinDetected" type="Area2D" parent="."]
+script = ExtResource("5_a7fi1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinDetected"]
+position = Vector2(768, 704)
+shape = SubResource("RectangleShape2D_lo16v")
+
+[node name="Sprite2D" type="Sprite2D" parent="WinDetected"]
+position = Vector2(768, 704)
+scale = Vector2(1.02459, 1.02459)
+texture = ExtResource("6_aaufk")
+
+[connection signal="body_entered" from="WinDetected" to="WinDetected" method="_on_body_entered"]
