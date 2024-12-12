@@ -30,6 +30,14 @@ script = ExtResource("1_fqvpf")
 
 [node name="Labyrinth_self_Gen_TileMap" parent="." instance=ExtResource("3_kgrc6")]
 tile_set = SubResource("TileSet_dg01f")
+grid_size = null
+step_delay = null
+allow_loops = null
+letters_to_show = null
+show_labels = null
+y_dim = null
+x_dim = null
+starting_coords = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
