@@ -150,7 +150,7 @@ func dfs(start: Vector2i):
 		if not found_new_path:
 			place_wall(current)
 
-	# to correct it kind of a placeholder:
+	# to correct it kind of a placeholder, i hopp om att sluta få labyrinter som int funkar
 	for y in range (-1, y_dim):
 		for x in range (-1, x_dim):
 			place_path(Vector2i(x,y))

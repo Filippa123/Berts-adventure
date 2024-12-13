@@ -7,6 +7,9 @@
 [ext_resource type="Script" path="res://Levels/Area2D.gd" id="5_6wb2u"]
 [ext_resource type="Texture2D" uid="uid://dgmn45v6v72vh" path="res://art/Berts children labyrinth goal.png" id="6_mks4c"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo16v"]
+size = Vector2(56, 48)
+
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h8ruv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_kanba"]
@@ -69,9 +72,6 @@ physics_layer_0/collision_layer = 1
 physics_layer_0/physics_material = SubResource("PhysicsMaterial_h8ruv")
 sources/0 = SubResource("TileSetAtlasSource_kanba")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lo16v"]
-size = Vector2(56, 48)
-
 [node name="labyrinth_level" type="Node2D"]
 
 [node name="TextureRect2" type="TextureRect" parent="."]
@@ -81,6 +81,18 @@ texture = ExtResource("1_2fwf8")
 
 [node name="wall" parent="." instance=ExtResource("2_mkk2w")]
 position = Vector2(720, 808)
+
+[node name="WinDetected" type="Area2D" parent="."]
+script = ExtResource("5_6wb2u")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WinDetected"]
+position = Vector2(768, 704)
+shape = SubResource("RectangleShape2D_lo16v")
+
+[node name="Sprite2D" type="Sprite2D" parent="WinDetected"]
+position = Vector2(768, 704)
+scale = Vector2(1.02459, 1.02459)
+texture = ExtResource("6_mks4c")
 
 [node name="PlayerBert" parent="." instance=ExtResource("3_jwo4c")]
 position = Vector2(32, 32)
@@ -101,17 +113,5 @@ limit_left = 0
 limit_top = 0
 limit_right = 832
 limit_bottom = 768
-
-[node name="WinDetected" type="Area2D" parent="."]
-script = ExtResource("5_6wb2u")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="WinDetected"]
-position = Vector2(768, 704)
-shape = SubResource("RectangleShape2D_lo16v")
-
-[node name="Sprite2D" type="Sprite2D" parent="WinDetected"]
-position = Vector2(768, 704)
-scale = Vector2(1.02459, 1.02459)
-texture = ExtResource("6_mks4c")
 
 [connection signal="body_entered" from="WinDetected" to="WinDetected" method="_on_body_entered"]
