@@ -12,6 +12,9 @@ func _ready():
 
 func _physics_process(_delta):
 	# Get input direction
+	if Input.get_action_strength("ui_escape") ==1:
+		get_tree().change_scene_to_file("res://Levels/start_level.tscn")
+	
 	var input_direction = Vector2(
 		Input.get_action_strength("ui_left") - Input.get_action_strength("ui_right"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
