@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://brscgdyxpjmyv"]
+[gd_scene load_steps=12 format=3 uid="uid://brscgdyxpjmyv"]
 
 [ext_resource type="PackedScene" uid="uid://b18u0hk5qiyli" path="res://Constructs/wall.tscn" id="2_i7v34"]
 [ext_resource type="PackedScene" uid="uid://dhmmgwlcnp4xu" path="res://Characters/player_bert.tscn" id="2_ra7ay"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://e48uj4ybaou6" path="res://art/Walls.png" id="4_6nrlr"]
 [ext_resource type="Script" path="res://Levels/Area2D.gd" id="5_k13ga"]
 [ext_resource type="Texture2D" uid="uid://dgmn45v6v72vh" path="res://art/Berts children labyrinth goal.png" id="6_bdqpi"]
+[ext_resource type="PackedScene" uid="uid://c58delwnuf6ma" path="res://you_won_menu.tscn" id="7_5ptb8"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_h8ruv"]
 
@@ -93,5 +94,7 @@ limit_left = 0
 limit_top = 0
 limit_right = 832
 limit_bottom = 768
+
+[node name="YouWonMenu" parent="." instance=ExtResource("7_5ptb8")]
 
 [connection signal="body_entered" from="WinDetected" to="WinDetected" method="_on_body_entered"]

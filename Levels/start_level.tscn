@@ -34,7 +34,6 @@ texture = ExtResource("2_5nkwv")
 [node name="PlayerBert" parent="." instance=ExtResource("1_t7oqv")]
 position = Vector2(287, 137)
 move_speed = 150.0
-starting_direction = Vector2(0, 1)
 
 [node name="TextureButton (labyrinth self gen)" type="TextureButton" parent="."]
 offset_left = 20.0
