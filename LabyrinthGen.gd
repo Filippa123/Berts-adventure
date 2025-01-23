@@ -97,7 +97,7 @@ func can_move_to(current: Vector2i):
 
 
 func prim():
-	#
+	var start = Vector2i(0, 0)
 	
 
 func dfs(start: Vector2i):
