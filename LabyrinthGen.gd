@@ -47,7 +47,7 @@ func _ready() -> void: #setting size
 	x_dim = grid_size
 	#Globals.letters_to_show.clear()
 	place_border()
-	dfs(starting_coords)
+	#dfs(starting_coords)
 	
 func place_border():
 	for y in range(-1, y_dim):
@@ -96,6 +96,9 @@ func can_move_to(current: Vector2i):
 	)
 
 
+func prim():
+	#
+	
 
 func dfs(start: Vector2i):
 	var fringe: Array[Vector2i] = [start]
@@ -159,4 +162,3 @@ func dfs(start: Vector2i):
 		place_wall_2(pos)
 		
 	
-

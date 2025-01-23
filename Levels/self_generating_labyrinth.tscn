@@ -8,18 +8,10 @@
 texture = ExtResource("4_prp43")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
 0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(16, -16, 16, 16, -16, 16, -16, -16)
 1:0/0 = 0
-1:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:0/0/physics_layer_0/angular_velocity = 0.0
 0:1/0 = 0
-0:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:1/0/physics_layer_0/angular_velocity = 0.0
 1:1/0 = 0
-1:1/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-1:1/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSet" id="TileSet_dg01f"]
 physics_layer_0/collision_layer = 1
@@ -30,6 +22,14 @@ script = ExtResource("1_fqvpf")
 
 [node name="Labyrinth_self_Gen_TileMap" parent="." instance=ExtResource("3_kgrc6")]
 tile_set = SubResource("TileSet_dg01f")
+grid_size = null
+step_delay = null
+allow_loops = null
+letters_to_show = null
+show_labels = null
+y_dim = null
+x_dim = null
+starting_coords = null
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
